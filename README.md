@@ -5,7 +5,7 @@ This is a Node.js-based Twitter bot that automatically generates and posts tweet
 ## Features
 
 - **Serverless Deployment:** Runs as a Vercel serverless function, eliminating the need for a dedicated server.
-- **Scheduled Tweeting:** Vercel Cron Jobs trigger the bot to post at **9:00 AM, 2:00 PM, and 7:00 PM PHT** (1:00, 6:00, and 11:00 UTC).
+- **Scheduled Tweeting:** Vercel Cron Jobs trigger the bot to post twice a day at **9:00 AM and 7:00 PM PHT** (1:00 and 11:00 UTC) to stay within the free plan limits.
 - **AI-Generated Content:** Uses Exa.ai to generate relevant and professional tweets based on a specified topic, tone, and keywords.
 - **AI-Generated Images:** Creates unique, high-quality images with OpenAI's DALL-E 3 to accompany each tweet.
 - **Dynamic Workflow:**
@@ -45,7 +45,8 @@ The project is structured for Vercel deployment:
     - Import the Git repository you just created.
 
 3.  **Configure the Project:**
-    - Vercel should automatically detect that it is a Node.js project. No special build settings are required.
+    - **Framework Preset:** Vercel will ask you to select a framework. Choose **"Other"**. It will correctly handle your serverless function.
+    - **Build and Output Settings:** You can leave these as the default. No special build command is needed.
     - Go to the "Settings" tab of your new Vercel project.
     - Click on "Environment Variables."
     - Add the following environment variables with your API keys and tokens:

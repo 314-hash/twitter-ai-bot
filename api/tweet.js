@@ -121,12 +121,8 @@ module.exports = async (req, res) => {
     console.log("🕒 Generating tweet...");
     const tweet = await generateTweet(TOPIC, TONE, KEYWORDS);
     const imagePath = await generateImage(tweet);
-    if (imagePath) {
-      await postToTwitter(tweet, imagePath);
-    } else {
-      // Fallback to posting text-only tweet if image generation fails
-      await postToTwitter(tweet, null);
-    }
+    // The postToTwitter function is already designed to handle cases where imagePath is null.
+    await postToTwitter(tweet, imagePath);
     res.status(200).send("Tweet posted successfully!");
   } catch (error) {
     console.error("Error in serverless function:", error);
